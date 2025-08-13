@@ -1,6 +1,7 @@
 import lodashIsEmpty from 'lodash/isEmpty';
 import React, {useMemo} from 'react';
 import type {OnyxEntry} from 'react-native-onyx';
+import {Platform} from 'react-native';
 import DatePicker from '@components/DatePicker';
 import FormProvider from '@components/Form/FormProvider';
 import InputWrapper from '@components/Form/InputWrapper';
@@ -139,7 +140,7 @@ function IOURequestStepDate({
                     defaultValue={currentCreated}
                     maxDate={CONST.CALENDAR_PICKER.MAX_DATE}
                     minDate={CONST.CALENDAR_PICKER.MIN_DATE}
-                    autoFocus
+                    autoFocus={Platform.OS !== 'web'}
                 />
             </FormProvider>
         </StepScreenWrapper>
