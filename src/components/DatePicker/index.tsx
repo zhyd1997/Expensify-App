@@ -33,6 +33,7 @@ function DatePicker(
         formID,
         autoFocus = false,
         shouldHideClearButton = false,
+        shouldHandleNavigationBack = true,
     }: DateInputWithPickerProps,
     ref: ForwardedRef<BaseTextInputRef>,
 ) {
@@ -156,6 +157,7 @@ function DatePicker(
                 onClose={closeDatePicker}
                 anchorPosition={popoverPosition}
                 shouldPositionFromTop={!isInverted}
+                shouldHandleNavigationBack={shouldHandleNavigationBack}
             />
         </>
     );
