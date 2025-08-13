@@ -32,9 +32,8 @@ function DatePicker(
         shouldSaveDraft = false,
         formID,
         autoFocus = false,
-        shouldHideClearButton = false,
-        shouldHandleNavigationBack = true,
-    }: DateInputWithPickerProps,
+                 shouldHideClearButton = false,
+     }: DateInputWithPickerProps,
     ref: ForwardedRef<BaseTextInputRef>,
 ) {
     const styles = useThemeStyles();
@@ -157,7 +156,6 @@ function DatePicker(
                 onClose={closeDatePicker}
                 anchorPosition={popoverPosition}
                 shouldPositionFromTop={!isInverted}
-                shouldHandleNavigationBack={shouldHandleNavigationBack}
             />
         </>
     );

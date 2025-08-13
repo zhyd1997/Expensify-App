@@ -44,8 +44,6 @@ type DatePickerModalProps = DatePickerBaseProps & {
         vertical: number;
     };
     onSelected?: (value: string) => void;
-    /** Whether the modal should handle navigation back button presses */
-    shouldHandleNavigationBack?: boolean;
 };
 
 type DateInputWithPickerProps = DatePickerBaseProps &
@@ -105,8 +103,6 @@ type DatePickerProps = {
     /** If the popover will be positioned from the top */
     shouldPositionFromTop?: boolean;
 
-    /** Whether the modal should handle navigation back button presses */
-    shouldHandleNavigationBack?: boolean;
 } & Omit<BaseTextInputProps & PopoverWithMeasuredContentProps, 'anchorRef' | 'children'>;
 
 export type {DatePickerBaseProps, DatePickerModalProps, DateInputWithPickerProps, DatePickerProps};

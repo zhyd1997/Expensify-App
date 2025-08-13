@@ -74,7 +74,6 @@ function DatePickerModal({
             shouldEnableNewFocusManagement
             shouldMeasureAnchorPositionFromTop={shouldPositionFromTop}
             shouldSkipRemeasurement
-            shouldHandleNavigationBack
         >
             <CalendarPicker
                 minDate={minDate}
