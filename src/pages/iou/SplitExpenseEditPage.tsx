@@ -188,7 +188,7 @@ function SplitExpenseEditPage({route}: SplitExpensePageProps) {
                                         CONST.IOU.TYPE.SPLIT_EXPENSE,
                                         CONST.IOU.OPTIMISTIC_TRANSACTION_ID,
                                         reportID,
-                                        backTo,
+                                        Navigation.getActiveRoute(),
                                     ),
                                 );
                             }}
