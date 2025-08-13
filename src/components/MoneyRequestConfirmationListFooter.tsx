@@ -205,6 +205,8 @@ type MoneyRequestConfirmationListFooterProps = {
 
     /** Flag indicating if the IOU is reimbursable */
     iouIsReimbursable: boolean;
+
+
 };
 
 function MoneyRequestConfirmationListFooter({

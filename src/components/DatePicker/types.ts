@@ -102,6 +102,7 @@ type DatePickerProps = {
 
     /** If the popover will be positioned from the top */
     shouldPositionFromTop?: boolean;
+
 } & Omit<BaseTextInputProps & PopoverWithMeasuredContentProps, 'anchorRef' | 'children'>;
 
 export type {DatePickerBaseProps, DatePickerModalProps, DateInputWithPickerProps, DatePickerProps};

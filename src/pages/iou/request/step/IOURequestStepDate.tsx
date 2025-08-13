@@ -1,6 +1,7 @@
 import lodashIsEmpty from 'lodash/isEmpty';
 import React, {useMemo} from 'react';
 import type {OnyxEntry} from 'react-native-onyx';
+import {Platform} from 'react-native';
 import DatePicker from '@components/DatePicker';
 import FormProvider from '@components/Form/FormProvider';
 import InputWrapper from '@components/Form/InputWrapper';
@@ -10,6 +11,7 @@ import useLocalize from '@hooks/useLocalize';
 import useOnyx from '@hooks/useOnyx';
 import usePolicy from '@hooks/usePolicy';
 import useThemeStyles from '@hooks/useThemeStyles';
+import useResponsiveLayout from '@hooks/useResponsiveLayout';
 import {isValidMoneyRequestType, shouldUseTransactionDraft} from '@libs/IOUUtils';
 import Navigation from '@libs/Navigation/Navigation';
 import {canEditFieldOfMoneyRequest} from '@libs/ReportUtils';
@@ -70,6 +72,8 @@ function IOURequestStepDate({
     const canEditingSplitBill = isEditingSplit && session && reportAction && session.accountID === reportAction.actorAccountID && areRequiredFieldsEmpty(transaction);
     const canEditMoneyRequest = isEditing && canEditFieldOfMoneyRequest(reportAction, CONST.EDIT_REQUEST_FIELD.DATE);
     const canEditSplitExpense = isSplitExpense && !!transaction;
+
+    const {isSmallScreenWidth} = useResponsiveLayout();
 
     // eslint-disable-next-line rulesdir/no-negated-variables
     let shouldShowNotFound = false;
@@ -139,7 +143,7 @@ function IOURequestStepDate({
                     defaultValue={currentCreated}
                     maxDate={CONST.CALENDAR_PICKER.MAX_DATE}
                     minDate={CONST.CALENDAR_PICKER.MIN_DATE}
-                    autoFocus
+                    autoFocus={Platform.OS !== 'web' || isSmallScreenWidth}
                 />
             </FormProvider>
         </StepScreenWrapper>

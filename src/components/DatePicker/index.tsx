@@ -32,8 +32,8 @@ function DatePicker(
         shouldSaveDraft = false,
         formID,
         autoFocus = false,
-        shouldHideClearButton = false,
-    }: DateInputWithPickerProps,
+                 shouldHideClearButton = false,
+     }: DateInputWithPickerProps,
     ref: ForwardedRef<BaseTextInputRef>,
 ) {
     const styles = useThemeStyles();
