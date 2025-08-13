@@ -158,6 +158,7 @@ function DatePicker(
                 anchorPosition={popoverPosition}
                 shouldPositionFromTop={!isInverted}
                 shouldHandleNavigationBack={shouldHandleNavigationBack}
+                asChild
             />
         </>
     );

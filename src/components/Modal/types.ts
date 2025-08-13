@@ -20,8 +20,11 @@ type WindowState = {
 
 type BaseModalProps = Partial<ReactNativeModalProps> &
     Partial<ReanimatedModalProps> & {
-        /** Decides whether the modal should cover fullscreen. FullScreen modal has backdrop */
-        fullscreen?: boolean;
+                 /** Decides whether the modal should cover fullscreen. FullScreen modal has backdrop */
+         fullscreen?: boolean;
+
+         /** Render children directly without creating a modal wrapper (Radix `asChild`-like behavior) */
+         asChild?: boolean;
 
         /** Should we close modal on outside click */
         shouldCloseOnOutsideClick?: boolean;

@@ -62,6 +62,20 @@ function Popover(props: PopoverProps) {
         onClose?.();
     };
 
+    if (props.asChild) {
+        // Render directly without creating any portal/modal wrappers
+        return (
+            <Modal
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...props}
+                onClose={onCloseWithPopoverContext}
+                asChild
+            >
+                {props.children}
+            </Modal>
+        );
+    }
+
     if (!fullscreen && !shouldUseNarrowLayout) {
         return createPortal(
             <Modal
