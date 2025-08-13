@@ -141,6 +141,7 @@ function SplitBillDetailsPage({route, report, reportAction}: SplitBillDetailsPag
                                     setDraftSplitTransaction(transaction?.transactionID, {billable});
                                 }}
                                 isConfirmed={isConfirmed}
+                                backTo={route.params.backTo}
                             />
                         )}
                     </ImageBehaviorContextProvider>

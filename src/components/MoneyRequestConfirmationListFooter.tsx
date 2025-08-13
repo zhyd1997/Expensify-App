@@ -205,6 +205,9 @@ type MoneyRequestConfirmationListFooterProps = {
 
     /** Flag indicating if the IOU is reimbursable */
     iouIsReimbursable: boolean;
+
+    /** The route to go back to when navigating from this component */
+    backTo?: string;
 };
 
 function MoneyRequestConfirmationListFooter({
@@ -257,6 +260,7 @@ function MoneyRequestConfirmationListFooter({
     iouIsReimbursable,
     onToggleReimbursable,
     isReceiptEditable = false,
+    backTo,
 }: MoneyRequestConfirmationListFooterProps) {
     const styles = useThemeStyles();
     const {translate, toLocaleDigit, localeCompare} = useLocalize();
@@ -541,7 +545,7 @@ function MoneyRequestConfirmationListFooter({
                             return;
                         }
 
-                        Navigation.navigate(ROUTES.MONEY_REQUEST_STEP_DATE.getRoute(action, iouType, transactionID, reportID, Navigation.getActiveRoute(), reportActionID));
+                        Navigation.navigate(ROUTES.MONEY_REQUEST_STEP_DATE.getRoute(action, iouType, transactionID, reportID, backTo || Navigation.getActiveRoute(), reportActionID));
                     }}
                     disabled={didConfirm}
                     interactive={!isReadOnly}
@@ -999,5 +1003,6 @@ export default memo(
         prevProps.shouldShowTax === nextProps.shouldShowTax &&
         deepEqual(prevProps.transaction, nextProps.transaction) &&
         prevProps.transactionID === nextProps.transactionID &&
-        prevProps.unit === nextProps.unit,
+        prevProps.unit === nextProps.unit &&
+        prevProps.backTo === nextProps.backTo,
 );
