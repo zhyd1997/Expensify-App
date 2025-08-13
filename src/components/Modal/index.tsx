@@ -7,7 +7,7 @@ import BaseModal from './BaseModal';
 import type BaseModalProps from './types';
 import type {WindowState} from './types';
 
-function Modal({fullscreen = true, asChild = false, onModalHide = () => {}, type, onModalShow = () => {}, children, shouldHandleNavigationBack, ...rest}: BaseModalProps) {
+function Modal({fullscreen = true, onModalHide = () => {}, type, onModalShow = () => {}, children, shouldHandleNavigationBack, ...rest}: BaseModalProps) {
     const theme = useTheme();
     const StyleUtils = useStyleUtils();
     const [previousStatusBarColor, setPreviousStatusBarColor] = useState<string>();
@@ -47,9 +47,6 @@ function Modal({fullscreen = true, asChild = false, onModalHide = () => {}, type
     );
 
     const onModalWillShow = () => {
-        if (asChild) {
-            return;
-        }
         const statusBarColor = StatusBar.getBackgroundColor() ?? theme.appBG;
 
         const isFullScreenModal =
@@ -67,17 +64,9 @@ function Modal({fullscreen = true, asChild = false, onModalHide = () => {}, type
     };
 
     const onModalWillHide = () => {
-        if (asChild) {
-            return;
-        }
         setStatusBarColor(previousStatusBarColor);
         rest.onModalWillHide?.();
     };
-
-    if (asChild) {
-        // Render children directly without modal wrapper
-        return <>{children}</>;
-    }
 
     return (
         <BaseModal

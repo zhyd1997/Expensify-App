@@ -192,8 +192,7 @@ type MoneyRequestConfirmationListProps = {
     /** Show remove expense confirmation modal */
     showRemoveExpenseConfirmModal?: () => void;
 
-    /** The route to go back to when navigating from this component */
-    backTo?: string;
+
 };
 
 type MoneyRequestConfirmationListItem = Participant | OptionData;
@@ -237,7 +236,6 @@ function MoneyRequestConfirmationList({
     iouIsReimbursable = true,
     onToggleReimbursable,
     showRemoveExpenseConfirmModal,
-    backTo,
 }: MoneyRequestConfirmationListProps) {
     const [policyCategoriesReal] = useOnyx(`${ONYXKEYS.COLLECTION.POLICY_CATEGORIES}${policyID}`, {canBeMissing: true});
     const [policyTags] = useOnyx(`${ONYXKEYS.COLLECTION.POLICY_TAGS}${policyID}`, {canBeMissing: true});
@@ -1169,7 +1167,6 @@ function MoneyRequestConfirmationList({
             iouIsReimbursable={iouIsReimbursable}
             onToggleReimbursable={onToggleReimbursable}
             isReceiptEditable={isReceiptEditable}
-            backTo={backTo}
         />
     );
 
@@ -1226,6 +1223,5 @@ export default memo(
         prevProps.hasSmartScanFailed === nextProps.hasSmartScanFailed &&
         prevProps.reportActionID === nextProps.reportActionID &&
         deepEqual(prevProps.action, nextProps.action) &&
-        prevProps.shouldDisplayReceipt === nextProps.shouldDisplayReceipt &&
-        prevProps.backTo === nextProps.backTo,
+        prevProps.shouldDisplayReceipt === nextProps.shouldDisplayReceipt,
 );

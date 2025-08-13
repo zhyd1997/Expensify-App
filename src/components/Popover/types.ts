@@ -13,9 +13,6 @@ type PopoverDimensions = {
 
 type PopoverProps = BaseModalProps &
     ChildrenProps & {
-        /** Render as child: do not create a modal/portal wrapper and render inline */
-        asChild?: boolean;
-
         /** The anchor position of the popover */
         anchorPosition?: PopoverAnchorPosition;
 
